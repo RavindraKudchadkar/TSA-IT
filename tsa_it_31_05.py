@@ -390,7 +390,11 @@ if __name__ == '__main__':
 		except:
 			mask=str(mask)
 
-	
+	if len(volumes)==0 and os.path.isfile(trial_file)==False:	
+		print(" Error: The trials file (EV file) is not present at the specified path \n")	
+		print(help_msg)	
+		sys.exit()
+		
 	# if file=="file" and type(mask)!=str:	
 	# 	print(" Error: Please provide a mask if using the -f option \n")	
 	# 	sys.exit()
@@ -458,11 +462,6 @@ if __name__ == '__main__':
 				sys.exit()
 			x=f.readline()
 		
-
-	if len(volumes)==0 and os.path.isfile(trial_file)==False:	
-		print(" Error: The trials file (EV file) is not present at the specified path \n")	
-		print(help_msg)	
-		sys.exit()
 
 
 	if start!=None and end!=None and start>=end:
